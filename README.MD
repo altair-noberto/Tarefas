@@ -9,3 +9,7 @@ Abra o arquivo .\JS\Api.js e altere a variável "URL" na linha 2 para o endereç
 ```
 const url = "https://localhost:7039/";
 ```
+
+# Bibliotecas adicionais
+
+[Font Awesome 6](https://cdnjs.com/libraries/font-awesome) - Biblioteca de ícones.
