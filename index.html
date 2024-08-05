@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Global.css">
+    <link rel="stylesheet" href="CSS/Index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Tarefas</title>
+</head>
+<body>
+
+    <nav>
+        <h3>Tarefas</h3>
+        <div class="NavDireita">
+            <i id="NoturnoClaro" class="fa-solid fa-moon"></i>
+            <li><a onclick="Logout()">Logout</a></li>
+        </div>
+    </nav>
+
+    <!-- Interface principal -->
+    <div class="HomeDiv">
+        <h1 class="MainTitle">Bem vindo</h1>
+        <div class="HeaderTarefas">
+            <h2>Suas lista de tarefas: </h2>
+            <div class="opcoes">
+                <button id="CriarTarefaBtn">+ Criar nova tarefa</button>
+                <input style="width: 100%;" class="InputTxt" placeholder="Buscar tarefa" type="search" name="BuscarTarefa" id="BuscarTarefa">
+            </div>
+        </div>
+        <section class="ListaTarefas"></section>
+        <div class="Paginacao">
+            <i id="PrimeiraPag" class="fa-solid fa-angles-left"></i>
+            <i id="PagAnterior" class="fa-solid fa-angle-left"></i>
+            <div class="Paginas"></div>
+            <i id="PagSeguinte" class="fa-solid fa-angle-right"></i>
+            <i id="UltimaPag" class="fa-solid fa-angles-right"></i>
+        </div>
+    </div>
+
+    <!-- Dialogs -->
+    <dialog class="Dialog" id="CriarTarefaDialog">
+        <div class="DialogDiv">
+        <p class="FecharDiv"><i id="FecharCriar" class="FecharDialog fa-solid fa-rectangle-xmark"></i></p>  
+            <h2>Criar Tarefa</h2>
+        <form class="FormTarefa" id="CriarTarefa">
+            <div class="FromGroup">
+                <label for="CriarTitulo">Titulo da tarefa</label>
+                <input class="InputTxt" type="text" name="CriarTitulo" id="CriarTitulo">
+            </div>
+            <div class="TextAreaGroup">
+                <label for="CriarDescricao">Descrição da tarefa</label>
+                <textarea name="CriarDescricao" id="CriarDescricao"></textarea>
+            </div>
+            <input type="submit" value="Criar Tarefa">
+        </form>
+        <p class="SucessoLabel" id="CriarResult"></p>
+        <p class="FalhaLabel" id="FalhaCriarResult"></p>
+        </div>
+    </dialog>
+
+    <dialog class="Dialog" id="AtualizarTarefaDialog">
+        <div class="DialogDiv">
+        <p class="FecharDiv"><i id="FecharAtualizar" class="FecharDialog fa-solid fa-rectangle-xmark"></i></p>  
+            <h2>Atualizar Tarefa</h2>
+        <form class="FormTarefa" id="AtualizarTarefa">
+            <div class="FromGroup">
+                <label for="AtualizarTitulo">Titulo da tarefa</label>
+                <input class="InputTxt" type="text" name="AtualizarTitulo" id="AtualizarTitulo">
+            </div>
+            <div class="TextAreaGroup">
+                <label for="AtualizarDescricao">Descrição da tarefa</label>
+                <textarea name="AtualizarDescricao" id="AtualizarDescricao"></textarea>
+            </div>
+            <span id="TarefaIdData" class="invisivel">sadas</span>
+            <input type="submit" value="Atualizar Tarefa">
+        </form>
+        <p class="SucessoLabel" id="AtualizarResult"></p>
+        <p class="FalhaLabel" id="FalhaAtualizarResult"></p>
+        </div>
+    </dialog>
+
+    <div class="Notificacao">
+        <p></p>
+    </div>
+    
+</body>
+<script src="JS/Api.js"></script>
+<script src="JS/VerificarToken.js"></script>
+<script src="JS/HomeMain.js"></script>
+<script src="JS/FuncoesCrud.js"></script>
+</html>

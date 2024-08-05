@@ -1,0 +1,72 @@
+.LoginBody{
+    width: 100vw;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav{
+    display: flex;
+    padding: 1em;
+    flex-direction: row-reverse;
+}
+
+.MainContainer{
+    min-width: 50%;
+    background-color: var(--container-bg);
+    padding: 2em;
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.hidden{
+    display: none;
+}
+
+#LoginForm > .ContainerTitle,
+#CadastroForm > .ContainerTitle{
+    padding-bottom: 2em;
+}
+
+#LoginForm, #CadastroForm{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    gap: 1em;
+    padding-bottom: 2em;
+}
+
+#LoginForm > .FormGroup > input[type="submit"],
+#CadastroForm > .FormGroup > input[type="submit"]{
+    margin-top: 2em;
+}
+
+.invalid{
+    border-color: red;
+}
+.invalid:hover, .invalid:focus{
+    border-color: red;
+}
+
+.SenhaValida{
+    font-size: 0.8rem;
+    padding: 0.4em 2em;
+    display: none;
+}
+
+.SenhaValida > ul > li{
+    transition: 0.2s;
+}
+
+.check{
+    text-decoration: line-through;
+    color: var(--desfoque);
+}

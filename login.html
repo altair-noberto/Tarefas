@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/Global.css">
+    <link rel="stylesheet" href="/CSS/Login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Login</title>
+</head>
+<body>
+    <nav><i id="NoturnoClaro" class="fa-solid fa-moon"></i></nav>
+    <div class="LoginBody">
+        <h1 class="MainTitle">Tasks</h1>
+        <!-- Interface login -->
+        <div class="MainContainer" id="LoginContainer">
+            <div class="Login">
+                <form id="LoginForm">
+                    <h2 class="ContainerTitle">Login</h2>
+                    <div class="FormGroup">
+                        <label for="email">Email</label>
+                        <input class="InputTxt" maxlength="256" required type="email" name="email" id="email">
+                    </div>
+                    <div class="FormGroup">
+                        <label for="senha">Senha</label>
+                        <input class="InputTxt" maxlength="16" required type="password" name="senha" id="senha">
+                    </div>
+                    <div class="FormGroup">
+                        <input type="submit" value="Logar">
+                    </div>
+                    <div class="FormGroup">
+                        <p class="FalhaLabel" id="LabelLogin"></p>
+                    </div>
+                </form>
+                <button id="IrRegistro" class="Anchor">< Criar uma conta</button>   
+            </div>
+        </div>
+        <!-- Interface Cadastro -->
+        <div class="MainContainer hidden" id="CadastroContainer">
+            <div class="Cadastro">
+                <form id="CadastroForm">
+                    <h2 class="ContainerTitle">Crie sua conta</h2>
+                    <div class="FormGroup">
+                        <label for="Nome">Digite seu nome</label>
+                        <input maxlength="30" class="InputTxt" required type="text" name="nomeRegistro" id="nomeRegistro">
+                    </div>
+                    <div class="FormGroup">
+                        <label for="Email">Digite seu email</label>
+                        <input maxlength="256" class="InputTxt" required type="email" name="emailRegistro" id="emailRegistro">
+                    </div>
+                    <div class="FormGroup">
+                        <label for="Senha">Digite sua senha</label>
+                        <input maxlength="16" onfocus="ExibirValidacao()" required onfocusout="OcultarValidacao()" class="InputTxt" type="password" name="senhaRegistro" id="senhaRegistro">
+                    </div>
+                    <!-- Validações senha -->
+                    <div class="SenhaValida">
+                        <ul>
+                            <li id="ValidarMinuscula">A senha precisa conter pelo menos uma letra minúscula</li>
+                            <li id="ValidarMaiuscula">A senha precisa conter pelo menos uma letra Maíscula</li>
+                            <li id="ValidarNumero">A senha precisa conter pelo menos um número</li>
+                            <li id="ValidarSimbolo">A senha precisa conter pelo menos um símbolo</li>
+                            <li id="ValidarTamanho">A senha precisa ter entre 6 e 16 caracteres</li>
+                        </ul>
+                    </div>
+                    <div class="FormGroup">
+                        <label for="SenhaConfirm">Confirme sua senha</label>
+                        <input maxlength="16" class="InputTxt" required type="password" name="senhaConfirm" id="senhaConfirm">
+                    </div>
+                    <div class="FormGroup">
+                        <input type="submit" name="CadastroSubmit" disabled value="Cadastrar">
+                    </div>
+                    <div class="FormGroup">
+                        <p class="FalhaLabel" id="LabelCadastro"></p>
+                        <p class="SucessoLabel" id="SucessoCadastro"></p>
+                    </div>
+                </form>
+                <div style="width: 100%; display: flex; justify-content: flex-end;">
+                    <button id="IrLogin" class="Anchor">Já tenho conta ></button>
+                </div>
+            </div>
+        </div> 
+    </div>
+</body>
+<script src="JS/Api.js"></script>
+<script src="JS/LoginMain.js"></script>
+</html>

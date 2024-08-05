@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.ContainerTitle{
+    font-size: 2rem;
+    text-align: center;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    --main-bg: #ececec;
+    --container-bg: #fff;
+    --notificacao-bg: #fff2f0;
+    --font-color: #000;
+    --desfoque: #a8a8a8;
+    --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --box-shadow-input: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    color: var(--font-color);
+    background-color: var(--main-bg);
+}
+
+body.dark{
+    --main-bg: #252525;
+    --container-bg: #242424;
+    --notificacao-bg: #423e3d;
+    --font-color: #c7c7c7;
+    --desfoque: #5a5a5a;
+    color: var(--font-color);
+}
+
+#NoturnoClaro{
+    font-size: 1.2rem;
+    padding: 0.3em 0.5em;
+    border-radius: 50%;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#NoturnoClaro:hover{
+    background-color: var(--desfoque);
+}
+
+.MainTitle{
+    font-size: 3rem;
+}
+
+.FormGroup{
+    display: flex;
+    justify-content: center;
+}
+
+.FormGroup label{
+    display: inline-block;
+    background-color: var(--container-bg);
+    margin-bottom: 10px;
+    position: absolute;
+    padding: 0 10px;
+    transform: translate(0, -10px);
+}
+
+.InputTxt{
+    border: 2px solid var(--desfoque);
+    background-color: var(--container-bg);
+    color: var(--desfoque);
+    height: 55px;
+    padding: 0 0.8rem;
+    outline: none;
+    width: 80%;
+    transition: 0.2s;
+    font-size: 1rem;
+    border-radius: 100px;
+    box-shadow: var(--box-shadow-input);
+}
+
+.InputTxt:hover, .InputTxt:focus{
+    border-color: var(--font-color);
+    color: var(--font-color);
+}
+
+button, input[type="submit"]{
+    padding: 0.8em 1.2em;
+    background-color: transparent;
+    border: 2px solid var(--desfoque);
+    color: var(--desfoque);
+    outline: none;
+    font-size: 1rem;
+    border-radius: 20px;
+    transition: 0.2s;
+    box-shadow: var(--box-shadow-input);
+    cursor: pointer;
+}
+
+button:disabled, input[type="submit"]:disabled{
+    cursor: initial;
+    opacity: 0.4;
+}
+
+button:hover:not(:disabled), input[type="submit"]:hover:not(:disabled){
+    color: var(--container-bg);
+    border-color: var(--font-color);
+    background-color: var(--font-color);
+}
+
+.FalhaLabel{
+    color: red;
+}
+
+.SucessoLabel{
+    color: rgb(0, 180, 0);
+}
+
+.Anchor{
+    padding: 0.4em 0.2em;
+    max-width: 60%;
+    border: none;
+}
+
+.Anchor:hover{
+    background-color: transparent;
+    color: var(--font-color);
+}
