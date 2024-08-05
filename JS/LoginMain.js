@@ -27,7 +27,7 @@ LoginForm.addEventListener('submit', async (e) => {
         senha: e.target.senha.value
     }
     let result = await Logar(credenciais);
-    if(result != undefined) labelLogin = result;
+    if(result.status != 200) labelLogin.innerText = "Usuário ou senha inválidos";
 })
 
 CadastroForm.addEventListener('submit', async (e) => {

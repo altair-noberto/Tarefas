@@ -22,7 +22,7 @@ async function Logar(credenciais) {
         document.cookie = `token=${data.token}`;
         sessionStorage.setItem('Nome', data.nome);
         window.location.replace("/");
-    } else return result;
+    } else return result.status;
 }
 
 async function Cadastro(credenciais){
