@@ -98,7 +98,7 @@ async function RenderPaginas(){
     let index = 1;
     let pagsNum = PaginasNum;
     if(PaginaAtual > PaginasNum) PaginaAtual = 1;
-     if(PaginasNum > 10){
+     if(PaginasNum > 4){
         pagsNum = 10
         if(PaginaAtual > 7){
             index = PaginaAtual - 1;

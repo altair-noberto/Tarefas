@@ -12,11 +12,11 @@ const IrLogin = document.querySelector('#IrLogin');
 
 // Span de validação da senha
 
-const ValidarMaiuscula = document.querySelector('#ValidarMaiuscula')
-const ValidarMinuscula = document.querySelector('#ValidarMinuscula')
-const ValidarNumero = document.querySelector('#ValidarNumero')
-const ValidarSimbolo = document.querySelector('#ValidarSimbolo')
-const ValidarTamanho = document.querySelector('#ValidarTamanho')
+const validmaiuscula = document.querySelector('#ValidarMaiuscula')
+const validminuscula = document.querySelector('#ValidarMinuscula')
+const validnumero = document.querySelector('#ValidarNumero')
+const validsimbolo = document.querySelector('#ValidarSimbolo')
+const validtamanho = document.querySelector('#ValidarTamanho')
 
 LoginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -40,6 +40,7 @@ CadastroForm.addEventListener('submit', async (e) => {
         senha: e.target.senhaRegistro.value,
     }
     let result = await Cadastro(credenciais);
+    labelCadastro.innerText = '';
     if(result != undefined) labelCadastro.innerText = result
 })
 
@@ -63,18 +64,18 @@ function VerificarSenha(entrada){
     const numero = /[0-9]/;
 
     return {
-        validminuscula: minuscula.test(entrada),
-        validmaiuscula: maiuscula.test(entrada),
-        validtamanho: tamanho.test(entrada),
-        validsimbolo: simbolo.test(entrada),
-        validnumero: numero.test(entrada),
+        validminuscula: minuscula.test(entrada), // id 0
+        validmaiuscula: maiuscula.test(entrada), // id 1
+        validtamanho: tamanho.test(entrada), // id 2
+        validsimbolo: simbolo.test(entrada), // id 3
+        validnumero: numero.test(entrada), // id 4
 
         validar: function () {
             if(this.validmaiuscula && this.validminuscula && this.validtamanho 
                 && this.validnumero
                 && this.validsimbolo
-            ) return true
-            else return false
+            ) return true;
+            return false
         }
     }
 }
@@ -93,11 +94,18 @@ function OcultarValidacao(){
 SenhaInput.addEventListener('keyup', (e) => {
     const validacoes = VerificarSenha(e.target.value)
     ConfirmarSenha = VerificarConfirmarSenha();
-    if(validacoes.validmaiuscula) ValidarMaiuscula.classList.add('check'); else ValidarMaiuscula.classList.remove('check')
-    if(validacoes.validminuscula) ValidarMinuscula.classList.add('check'); else ValidarMinuscula.classList.remove('check')
-    if(validacoes.validnumero) ValidarNumero.classList.add('check'); else ValidarNumero.classList.remove('check')
-    if(validacoes.validsimbolo) ValidarSimbolo.classList.add('check'); else ValidarSimbolo.classList.remove('check')
-    if(validacoes.validtamanho) ValidarTamanho.classList.add('check'); else ValidarTamanho.classList.remove('check')
+
+    function validar(condicaoId, label){
+        const condicao = Object.values(validacoes)[condicaoId]
+        condicao ? label.classList.add('check') : label.classList.remove('check');
+    }
+
+    validar(0, validminuscula)
+    validar(1, validmaiuscula)
+    validar(2, validtamanho)
+    validar(3, validsimbolo)
+    validar(4, validnumero)
+
     if(validacoes.validar()){
         SenhaValida = true;
         ValidarSenha()
@@ -114,8 +122,8 @@ SenhaConfirm.addEventListener('keyup', () => {
 })
 
 function VerificarConfirmarSenha(){
-    if(SenhaInput.value === SenhaConfirm.value) return true
-    else return false
+    if(SenhaInput.value === SenhaConfirm.value) return true;
+    return false
 }
 
 function ValidarSenha(){
